@@ -59,7 +59,7 @@ export function ManualPage({ onBack }) {
                   setSelected(server.id);
                 }}
                 className={
-                  "flex items-center justify-between w-full rounded-xl border px-4 py-3 transition " +
+                  "flex items-center justify-between w-full rounded-xl border px-3 py-3 transition " +
                   (isSelected
                     ? "border-blue-500 bg-blue-500/10 shadow-sm"
                     : "border-gray-800 hover:border-gray-600 hover:bg-white/5")
@@ -134,7 +134,7 @@ export function ManualPage({ onBack }) {
                   {selectedServer?.label}
                 </p>
                 <p className="text-xs text-gray-400">
-                  Latência estimada: {" "}
+                  Latência estimada:{" "}
                   <span className="text-white">
                     {Math.max(20, 100 - selectedServer?.load * 7)}ms
                   </span>
