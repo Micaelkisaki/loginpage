@@ -208,8 +208,8 @@ export function ConfigConnection({ onBack }) {
               </div>
 
               <p className="text-xs text-gray-600 mt-2.5 px-1 flex items-center gap-1">
-                <Sparkles size={10} className="text-gray-600" />
-                O modo automático realiza testes de rede em segundo plano
+                <Sparkles size={10} className="text-gray-600" />O modo
+                automático realiza testes de rede em segundo plano
               </p>
             </div>
 
