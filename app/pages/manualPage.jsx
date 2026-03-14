@@ -5,6 +5,14 @@ import { Check, ChevronLeft, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function ManualPage({ onBack }) {
+  const configs = useMemo(() => {
+    return [
+      { id: 1, name: "VIVO", servers: 5 },
+      { id: 2, name: "TIM", servers: 3 },
+      { id: 3, name: "CLARO", servers: 4 },
+    ];
+  }, []);
+
   return (
     <div className="w-full h-full">
       <button
@@ -16,8 +24,10 @@ export function ManualPage({ onBack }) {
       </button>
       <Separator className={"bg-gray-800"} />
       <div className="flex flex-col px-4 pt-3 ">
-        <h1 className="text-2xl font-bold text-white">Operadoras</h1>
-        <div className="flex items-center justify-between mt-1 mb-1 mx-2">
+        <h1 className="text-2xl font-bold text-white mb-3 flex justify-center">
+          Operadoras
+        </h1>
+        <div className="flex items-center justify-between mt-1 mb-2 justify-center gap-2">
           <h1 className="text-xs font-semibold text-gray-400">
             SERVIDORES DISPONIVEIS
           </h1>
@@ -37,15 +47,32 @@ export function ManualPage({ onBack }) {
             />
           </svg>
         </div>
-        <Card className={"container rounded-md w-full h-full p-0 bg-red-500"}>
-          <div className="flex items-center justify-between gap-1">
-            <div className="h-6 w-6 bg-blue-500 rounded-md flex items-center justify-center m-2">
-              <ChevronLeft size={16} className="text-white" />
+        <div className="w-full h-full p-0 gap-2 bg-gray-700 rounded-tl-lg rounded-tr-lg rounded-bl-lg rounded-br-lg">
+          {configs.map((config) => (
+            <div
+              key={config.id}
+              className="flex items-center justify-between gap-3 m-2 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-shadow shadow-sm"
+            >
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://i.postimg.cc/v806WvQZ/1750564847166.png"
+                  alt="logo"
+                  className="h-10 w-10 rounded-md"
+                />
+                <div>
+                  <h2 className="text-lg font-semibold text-white">{config.name}</h2>
+                  <p className="text-xs text-gray-400">Operadora</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="text-sm text-white font-medium mr-2">{config.servers} servidores</div>
+                <span className="inline-flex items-center px-2 py-1 text-xs font-semibold rounded-full bg-green-500 text-white">
+                  Online
+                </span>
+              </div>
             </div>
-            <h1 className="text-lg font-semibold flex-1 ">VIVO</h1>
-            <Check className="mr-1" />
-          </div>
-        </Card>
+          ))}
+        </div>
       </div>
     </div>
   );
